@@ -1,0 +1,32 @@
+/api/v1/user:
+  get:
+    tags:
+      - User
+    security:
+      - ApiKey: []
+    description: Получаем данные зарегестрированного пользователя
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Successful
+
+  put:
+    tags:
+      - User
+    security:
+      - ApiKey: []
+    description: Изменяем данные зарегестрированного пользователя
+    parameters:
+      - name: credentials
+        description: User object
+        in: body
+        type: string
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Successful

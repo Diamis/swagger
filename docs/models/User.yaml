@@ -1,0 +1,30 @@
+definitions:
+  User:
+    type: object
+    properties:
+      first_name:
+        type: string
+      last_name:
+        type: string
+      email:
+        type: string
+      avatar_type:
+        type: string
+      avatar_location:
+        type: string
+      password:
+        type: string
+      password_changed_at:
+        type: timestamp
+      active:
+        type: integer
+      confirmation_code:
+        type: string
+      confirmed:
+        type: boolean
+      timezone:
+        type: string
+      created_at:
+        type: timestamp
+      updated_at:
+        type: timestamp

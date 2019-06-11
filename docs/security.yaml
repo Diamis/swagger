@@ -1,0 +1,8 @@
+securityDefinitions:
+  ApiKey:
+    description: |
+      Для доступа к API действительный токен JWT должен быть передан в заголовке 'header' 
+      всех запросах 'Authorization'.
+    type: apiKey
+    name: Authorization
+    id: header

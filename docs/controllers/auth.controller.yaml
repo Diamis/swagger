@@ -1,0 +1,134 @@
+/api/v1/auth/login:
+  post:
+    tags:
+      - Auth
+    security:
+      - ApiKey: []
+    produces:
+      - application/json
+    description: Авторизация пользователя в приложении
+    parameters:
+      - name: credentials
+        description: User object
+        in: body
+        type: string
+        required: true
+        schema:
+          properties:
+            email:
+              type: string
+              example: test@email.ru
+            password:
+              type: string
+              example: "test_password"
+          required:
+            - email
+            - password
+    responses:
+      200:
+        description: Success
+      424:
+        description: Project not found
+
+/api/v1/auth/social/login:
+  post:
+    tags:
+      - Auth
+    security:
+      - ApiKey: []
+    produces:
+      - application/json
+    description: Авторизация пользователя в приложении
+    parameters:
+      - in: body
+        type: string
+        schema:
+          properties:
+            social:
+              type: string
+              example: vk
+    responses:
+      200:
+        description: Success
+      424:
+        description: Project not found
+
+/api/v1/auth/logout:
+  post:
+    tags:
+      - Auth
+    security:
+      - ApiKey: []
+    produces:
+      - application/json
+    description: Выход из системы
+    responses:
+      200:
+        description: Success
+      424:
+        description: Project not found
+
+/api/v1/auth/register:
+  post:
+    tags:
+      - Auth
+    security:
+      - ApiKey: []
+    description: Регистрация нового пользователя в системе
+    parameters:
+      - in: body
+        schema:
+          properties:
+            email: 
+              type: string
+            password:
+              type: string
+          required:
+            - email
+            - password
+          
+
+/api/v1/auth/confirm:
+  post:
+    tags:
+      - Auth
+    security:
+      - ApiKey: []
+    description: Подтверждение аккаунта
+    parameters:
+      - in: body
+        schema:
+          properties:
+            confirm:
+              type: string
+
+/api/v1/auth/forgot:
+  post:
+    tags:
+      - Auth
+    security:
+      - ApiKey: []
+    description: Запрос на востановление пароля
+    parameters:
+      - in: body
+        schema:
+          properties:
+            email:
+              type: string
+              description: user email
+
+/api/v1/auth/forgot/password:
+  post:
+    tags:
+      - Auth
+    security:
+      - ApiKey: []
+    description: Запрос на смену забытого пароля
+    parameters:
+      - in: body
+        schema:
+          properties:
+            code:
+              type: string
+            password:
+              type: string

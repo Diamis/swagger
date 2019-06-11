@@ -1,0 +1,6 @@
+.idea
+logs
+*.log
+.grunt
+.env
+node_modules
